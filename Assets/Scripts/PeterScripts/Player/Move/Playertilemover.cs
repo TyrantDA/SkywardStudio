@@ -5,6 +5,10 @@ using UnityEngine;
 public class Playertilemover : MonoBehaviour
 {
     public bool input;
+    public Tileholder Tiles;
+    public GameObject currenttile;
+    public Vector3 Starttile;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,33 +20,155 @@ public class Playertilemover : MonoBehaviour
     {
         if (input == true)
         {
+            Starttile = transform.position;
+
             if (Input.GetKeyDown("w"))
             {
-                input = false;
-                StartCoroutine("Forwardmove");
+                Vector3 endposs = transform.position + new Vector3(0, 0, 2);
+
+                if (endposs.z == 1)
+                {
+                    currenttile = Tiles.array1[Mathf.RoundToInt((endposs.x-1)/2)];
+                }
+                if (endposs.z == 3)
+                {
+                    currenttile = Tiles.array2[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                }
+                if (endposs.z == 5)
+                {
+                    currenttile = Tiles.array3[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                }
+                if (endposs.z == 7)
+                {
+                    currenttile = Tiles.array4[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                }
+                if (endposs.z == 9)
+                {
+                    currenttile = Tiles.array5[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                }
+                if (currenttile.GetComponent<Tilechangerwalk>().ocupided == false)
+                {
+                    input = false;
+
+                    StartCoroutine("Forwardmove");
+
+                }
+
 
             }
             if (Input.GetKeyDown("s"))
             {
-                input = false;
+                Vector3 endposs = transform.position - new Vector3(0, 0, 2);
 
-                StartCoroutine("Backmove");
+                if (endposs.z == 1)
+                {
+                    currenttile = Tiles.array1[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                }
+                if (endposs.z == 3)
+                {
+                    currenttile = Tiles.array2[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                }
+                if (endposs.z == 5)
+                {
+                    currenttile = Tiles.array3[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                }
+                if (endposs.z == 7)
+                {
+                    currenttile = Tiles.array4[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                }
+                if (endposs.z == 9)
+                {
+                    currenttile = Tiles.array5[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                }
+                if (currenttile.GetComponent<Tilechangerwalk>().ocupided == false)
+                {
+                    input = false;
+
+                    StartCoroutine("Backmove");
+
+                }
             }
             if (Input.GetKeyDown("a"))
             {
-                input = false;
+                Vector3 endposs = transform.position - new Vector3(2, 0, 0);
 
-                StartCoroutine("Leftmove");
+                if (endposs.z == 1)
+                {
+                    currenttile = Tiles.array1[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                }
+                if (endposs.z == 3)
+                {
+                    currenttile = Tiles.array2[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                }
+                if (endposs.z == 5)
+                {
+                    currenttile = Tiles.array3[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                }
+                if (endposs.z == 7)
+                {
+                    currenttile = Tiles.array4[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                }
+                if (endposs.z == 9)
+                {
+                    currenttile = Tiles.array5[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                }
+                if (currenttile.GetComponent<Tilechangerwalk>().ocupided == false)
+                {
+                    input = false;
+
+                    StartCoroutine("Leftmove");
+
+                }
             }
             if (Input.GetKeyDown("d"))
             {
-                input = false;
+                Vector3 endposs = transform.position + new Vector3(2, 0, 0);
 
-                StartCoroutine("Rightmove");
+                if (endposs.z == 1)
+                {
+                    currenttile = Tiles.array1[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                }
+                if (endposs.z == 3)
+                {
+                    currenttile = Tiles.array2[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                }
+                if (endposs.z == 5)
+                {
+                    currenttile = Tiles.array3[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                }
+                if (endposs.z == 7)
+                {
+                    currenttile = Tiles.array4[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                }
+                if (endposs.z == 9)
+                {
+                    currenttile = Tiles.array5[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                }
+                if (currenttile.GetComponent<Tilechangerwalk>().ocupided == false)
+                {
+                    input = false;
+
+                    StartCoroutine("Rightmove");
+
+                }
+            }
+            if (Input.GetKeyDown("space"))
+            {
+                input = false;
+                StartCoroutine("Notmove");
             }
         }
 
 
+
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Chesspeice"))
+        {
+            StopAllCoroutines();
+            StartCoroutine("Moveback");
+        }
     }
     public IEnumerator Forwardmove()
     {
@@ -114,5 +240,30 @@ public class Playertilemover : MonoBehaviour
         input = true;
 
     }
+    public IEnumerator Notmove()
+    {
+        yield return new WaitForSeconds(1);
+        input = true;
+
+    }
+    public IEnumerator Moveback()
+    {
+
+        Vector3 startposs = transform.position;
+        Vector3 endposs = Starttile;
+        while (transform.position.z != endposs.z)
+        {
+            transform.position += (endposs - startposs) * Time.deltaTime * 1;
+            yield return null;
+            if (Mathf.Abs(endposs.z - transform.position.z) < 0.05)
+            {
+                transform.position = endposs;
+            }
+        }
+        input = true;
+
+
+    }
+
 
 }
