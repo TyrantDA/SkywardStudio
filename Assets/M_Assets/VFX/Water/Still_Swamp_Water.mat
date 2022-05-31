@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Still_Swamp_Water
+  m_Shader: {fileID: -6465566751694194690, guid: a3e2083ebf2ed1f43857dfd1a8e4e52e, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_6f873cf87d6840559cfe53d468a06bae:
+        m_Texture: {fileID: 2800000, guid: 670e52a3b9702b048bd26d07c0434716, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_0a95afd813c044ef812f963508488996: 1
+    - Vector1_16c7a9c45b1d4b0d983a275a291f3f94: 1
+    - Vector1_21f572a4b54b458bb691a0d97641adba: 0.7
+    - Vector1_24679be1c19443f5ac8cf35ad955c065: 1.2
+    - Vector1_2d0cb001af654773a65870a2203da921: 0.05
+    - Vector1_3c2e393532a5448bb1e85a775299022a: 0.4
+    - Vector1_50ecb83168b64f7fbd5eef283c090b82: 0.13
+    - Vector1_9f7636dcb508458db23296d4446a354c: 0.001
+    - Vector1_b0198dc3e9394a4eb6105cac1a3ab444: 1
+    - Vector1_e5a1125df5f643c9b97a24150eda22e3: 5
+    - Vector1_f7754b7f08844d53b615b83419697282: -0.38
+    m_Colors:
+    - Color_be38a8d446ba46d18985f6731f72e02f: {r: 1, g: 1, b: 1, a: 1}
+    - Vector2_41933522d83845f88ebe98f7bc430307: {r: 0.5, g: 0.5, b: 0, a: 0}
+  m_BuildTextureStacks: []
