@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemListUI : MonoBehaviour
 {
-    public Transform panelContainer;
+    public GameObject panelContainer;
     public Transform coinPoint;
     public GameObject uiItemPrefab;
     public GameObject uiCoin;
@@ -30,7 +30,7 @@ public class ItemListUI : MonoBehaviour
             if (amount < 1)
                 return;
             items.Add(newItem, amount);
-            uiItems.Add(newItem, Instantiate(uiItemPrefab, panelContainer).GetComponent<UIItem>());
+            uiItems.Add(newItem, Instantiate(uiItemPrefab, panelContainer.transform).GetComponent<UIItem>());
             uiItems[newItem].SetItem(newItem, items[newItem]);
         }
         else
@@ -96,6 +96,12 @@ public class ItemListUI : MonoBehaviour
         {
             Destroy(collision.gameObject);
             addCoin();
+        }
+
+        if(collision.gameObject.CompareTag("Key"))
+        {
+            AddItem(collision.gameObject.GetComponent<KeyHolder>().getKey());
+            Destroy(collision.gameObject);
         }
     }
 }
