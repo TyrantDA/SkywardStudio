@@ -35,7 +35,6 @@ public class KeyCheck : MonoBehaviour
         {
             if(checkRequirements(other.gameObject))
             {
-                activateObject
             }
         }
     }
