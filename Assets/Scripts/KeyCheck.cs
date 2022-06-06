@@ -7,7 +7,7 @@ public class KeyCheck : MonoBehaviour
     [SerializeField] List<ItemInfo> keyList = new List<ItemInfo>();
     [SerializeField] List<int> KeyAmount = new List<int>();
 
-    public Component activateObject;
+    public List<Animation> listOfAnimation = new List<Animation>();
 
     bool checkRequirements(GameObject Player)
     {
@@ -35,6 +35,10 @@ public class KeyCheck : MonoBehaviour
         {
             if(checkRequirements(other.gameObject))
             {
+                for(int x = 0; x < listOfAnimation.Count; x++)
+                {
+                    listOfAnimation[x].Play();
+                }
             }
         }
     }
