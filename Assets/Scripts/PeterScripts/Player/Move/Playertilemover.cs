@@ -18,6 +18,10 @@ public class Playertilemover : MonoBehaviour
     public bool Fireballcango;
     public bool Fireballisgo;
 
+    public bool Slash;
+    public bool Slashcango;
+    public bool Slashisgo;
+
     public bool targeting;
     public GameObject[] Currentarray;
 
@@ -29,7 +33,8 @@ public class Playertilemover : MonoBehaviour
         Back = false;
         Left = false;
         Right = false;
-        Fireball = true;
+        Fireball = false;
+        Slash = true;
         targeting = false;
     }
 
@@ -42,42 +47,143 @@ public class Playertilemover : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                targeting = false;
-                Fireballcango = false;
                 forward = true;
                 Back = false;
                 Left = false;
                 Right = false;
+
+                Fireballcango = false;
+                Slashcango = false;
+                if ( targeting == true)
+                {
+                    targeting = false;
+                    if (Fireball == true)
+                    {
+                        StartCoroutine("FireballTar");
+                    }
+                    if (Slash == true)
+                    {
+                        StartCoroutine("SlashTar");
+                    }
+                }
+
+
             }
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                targeting = false;
-                Fireballcango = false;
-
                 forward = false;
                 Back = true;
                 Left = false;
                 Right = false;
+
+                Fireballcango = false;
+                Slashcango = false;
+                if (targeting == true)
+                {
+                    targeting = false;
+                    if (Fireball == true)
+                    {
+                        StartCoroutine("FireballTar");
+                    }
+                    if (Slash == true)
+                    {
+                        StartCoroutine("SlashTar");
+                    }
+                }
+
+
             }
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                targeting = false;
-                Fireballcango = false;
-
                 forward = false;
                 Back = false;
                 Left = true;
                 Right = false;
+
+                Fireballcango = false;
+                Slashcango = false;
+                if (targeting == true)
+                {
+                    targeting = false;
+                    if (Fireball == true)
+                    {
+                        StartCoroutine("FireballTar");
+                    }
+                    if (Slash == true)
+                    {
+                        StartCoroutine("SlashTar");
+                    }
+                }
+
+
             }
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                targeting = false;
-                Fireballcango = false;
-
                 forward = false;
                 Back = false;
                 Left = false;
                 Right = true;
+
+                Fireballcango = false;
+                Slashcango = false;
+                if (targeting == true)
+                {
+                    targeting = false;
+                    if (Fireball == true)
+                    {
+                        StartCoroutine("FireballTar");
+                    }
+                    if (Slash == true)
+                    {
+                        StartCoroutine("SlashTar");
+                    }
+                }
+
+
+            }
+            if (Input.GetKeyDown("f"))
+            {
+                Fireballcango = false;
+                Slashcango = false;
+
+                Fireball = true;
+                Slash = false;
+
+                if (targeting == true)
+                {
+                    targeting = false;
+                    if (Fireball == true)
+                    {
+                        StartCoroutine("FireballTar");
+                    }
+                    if (Slash == true)
+                    {
+                        StartCoroutine("SlashTar");
+                    }
+                }
+
+            }
+            if (Input.GetKeyDown("g"))
+            {
+
+                Fireballcango = false;
+                Slashcango = false;
+
+                Slash = true;
+                Fireball = false;
+
+                if (targeting == true)
+                {
+                    targeting = false;
+                    if (Fireball == true)
+                    {
+                        StartCoroutine("FireballTar");
+                    }
+                    if (Slash == true)
+                    {
+                        StartCoroutine("SlashTar");
+                    }
+                }
             }
             if (Input.GetKeyDown("r"))
             {
@@ -87,18 +193,33 @@ public class Playertilemover : MonoBehaviour
                 {
                     StartCoroutine("FireballTar");
                 }
+                if (Slash == true)
+                {
+                    StartCoroutine("SlashTar");
+                }
             }
             if(Fireballcango == true)
             {
-                if (Input.GetKeyDown("f"))
+                if (Input.GetKeyDown("e"))
                 {
-                    StartCoroutine("Fireballgo");
+                    input = false;
+                    StartCoroutine("Attackgo");
+                }
+            }
+            if (Slashcango == true)
+            {
+                if (Input.GetKeyDown("e"))
+                {
+                    input = false;
+                    StartCoroutine("Attackgo");
+
                 }
             }
             if (Input.GetKeyDown("w"))
             {
                 targeting = false;
                 Fireballcango = false;
+                Slashcango = false;
 
                 forward = true;
                 Back = false;
@@ -141,6 +262,7 @@ public class Playertilemover : MonoBehaviour
             {
                 targeting = false;
                 Fireballcango = false;
+                Slashcango = false;
 
                 forward = false;
                 Back = true;
@@ -180,6 +302,7 @@ public class Playertilemover : MonoBehaviour
             {
                 targeting = false;
                 Fireballcango = false;
+                Slashcango = false;
 
                 forward = false;
                 Back = false;
@@ -219,6 +342,7 @@ public class Playertilemover : MonoBehaviour
             {
                 targeting = false;
                 Fireballcango = false;
+                Slashcango = false;
 
                 forward = false;
                 Back = false;
@@ -258,6 +382,7 @@ public class Playertilemover : MonoBehaviour
             {
                 targeting = false;
                 Fireballcango = false;
+                Slashcango = false;
 
                 input = false;
                 StartCoroutine("Notmove");
@@ -365,11 +490,20 @@ public class Playertilemover : MonoBehaviour
                 transform.position = endposs;
             }
         }
+        while (transform.position.x != endposs.x)
+        {
+            transform.position += (endposs - startposs) * Time.deltaTime * 1;
+            yield return null;
+            if (Mathf.Abs(endposs.x - transform.position.x) < 0.05)
+            {
+                transform.position = endposs;
+            }
+        }
         input = true;
 
 
     }
-    public IEnumerator Fireballgo()
+    public IEnumerator Attackgo()
     {
         foreach (GameObject tile in Tiles.array1)
         {
@@ -421,11 +555,17 @@ public class Playertilemover : MonoBehaviour
                 }
             }
         }
+        yield return new WaitForSeconds(0.1f);
+
+        input = true;
         yield return null;
 
     }
     public IEnumerator FireballTar()
     {
+        yield return new WaitForSeconds(0.1f);
+
+        targeting = true;
         if (forward == true)
         {
             Vector3 Thisposs = transform.position;
@@ -541,6 +681,146 @@ public class Playertilemover : MonoBehaviour
             }
         }
         Fireballcango = true;
+        input = true;
+        yield return null;
+
+
+    }
+    public IEnumerator SlashTar()
+    {
+        yield return new WaitForSeconds(0.11f);
+        targeting = true;
+        if (forward == true)
+        {
+            Vector3 Thisposs = transform.position;
+
+            if (Mathf.RoundToInt(Thisposs.z) == 1)
+            {
+                Tiles.array2[Mathf.RoundToInt((Thisposs.x - 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array2[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array2[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+
+            }
+            if (Mathf.RoundToInt(Thisposs.z) == 3)
+            {
+                Tiles.array3[Mathf.RoundToInt((Thisposs.x - 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array3[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array3[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+            }
+            if (Mathf.RoundToInt(Thisposs.z) == 5)
+            {
+                Tiles.array4[Mathf.RoundToInt((Thisposs.x - 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array4[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array4[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+            }
+            if (Mathf.RoundToInt(Thisposs.z) == 7)
+            {
+                Tiles.array5[Mathf.RoundToInt((Thisposs.x - 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array5[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array5[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+            }
+
+        }
+        if (Back == true)
+        {
+            Vector3 Thisposs = transform.position;
+
+            if (Mathf.RoundToInt(Thisposs.z) == 3)
+            {
+                Tiles.array1[Mathf.RoundToInt((Thisposs.x - 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array1[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array1[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+            }
+            if (Mathf.RoundToInt(Thisposs.z) == 5)
+            {
+                Tiles.array2[Mathf.RoundToInt((Thisposs.x - 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array2[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array2[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+
+            }
+            if (Mathf.RoundToInt(Thisposs.z) == 7)
+            {
+                Tiles.array3[Mathf.RoundToInt((Thisposs.x - 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array3[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array3[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+            }
+            if (Mathf.RoundToInt(Thisposs.z) == 9)
+            {
+                Tiles.array4[Mathf.RoundToInt((Thisposs.x - 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array4[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array4[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+            }
+
+        }
+        if (Right == true)
+        {
+            Vector3 Thisposs = transform.position;
+
+            if (Mathf.RoundToInt(Thisposs.z) == 1)
+            {
+                Tiles.array1[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array2[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+            }
+            if (Mathf.RoundToInt(Thisposs.z) == 3)
+            {
+                Tiles.array2[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array1[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array3[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+
+            }
+            if (Mathf.RoundToInt(Thisposs.z) == 5)
+            {
+                Tiles.array3[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array2[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array4[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+            }
+            if (Mathf.RoundToInt(Thisposs.z) == 7)
+            {
+                Tiles.array4[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array3[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array5[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+            }
+            if (Mathf.RoundToInt(Thisposs.z) == 9)
+            {
+                Tiles.array5[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array4[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+            }
+        }
+        if (Left == true)
+        {
+            Vector3 Thisposs = transform.position;
+
+            if (Mathf.RoundToInt(Thisposs.z) == 1)
+            {
+                Tiles.array1[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array2[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+            }
+            if (Mathf.RoundToInt(Thisposs.z) == 3)
+            {
+                Tiles.array2[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array1[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array3[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+
+            }
+            if (Mathf.RoundToInt(Thisposs.z) == 5)
+            {
+                Tiles.array3[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array2[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array4[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+            }
+            if (Mathf.RoundToInt(Thisposs.z) == 7)
+            {
+                Tiles.array4[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array3[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array5[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+            }
+            if (Mathf.RoundToInt(Thisposs.z) == 9)
+            {
+                Tiles.array5[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array4[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+            }
+        }
+        Slashcango = true;
         input = true;
         yield return null;
 
