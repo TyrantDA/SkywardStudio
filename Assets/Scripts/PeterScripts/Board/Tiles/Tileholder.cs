@@ -9,6 +9,7 @@ public class Tileholder : MonoBehaviour
     public GameObject[] array3;
     public GameObject[] array4;
     public GameObject[] array5;
+    public GameObject[] array6;
 
     // Start is called before the first frame update
     void Start()

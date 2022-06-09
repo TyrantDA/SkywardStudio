@@ -248,6 +248,10 @@ public class Playertilemover : MonoBehaviour
                 {
                     currenttile = Tiles.array5[Mathf.RoundToInt((endposs.x - 1) / 2)];
                 }
+                if (endposs.z == 11)
+                {
+                    currenttile = Tiles.array6[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                }
                 if (currenttile.GetComponent<Tilechangerwalk>().ocupided == false)
                 {
                     input = false;
@@ -290,6 +294,10 @@ public class Playertilemover : MonoBehaviour
                 {
                     currenttile = Tiles.array5[Mathf.RoundToInt((endposs.x - 1) / 2)];
                 }
+                if (endposs.z == 11)
+                {
+                    currenttile = Tiles.array6[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                }
                 if (currenttile.GetComponent<Tilechangerwalk>().ocupided == false)
                 {
                     input = false;
@@ -330,6 +338,10 @@ public class Playertilemover : MonoBehaviour
                 {
                     currenttile = Tiles.array5[Mathf.RoundToInt((endposs.x - 1) / 2)];
                 }
+                if (endposs.z == 11)
+                {
+                    currenttile = Tiles.array6[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                }
                 if (currenttile.GetComponent<Tilechangerwalk>().ocupided == false)
                 {
                     input = false;
@@ -369,6 +381,10 @@ public class Playertilemover : MonoBehaviour
                 if (endposs.z == 9)
                 {
                     currenttile = Tiles.array5[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                }
+                if (endposs.z == 11)
+                {
+                    currenttile = Tiles.array6[Mathf.RoundToInt((endposs.x - 1) / 2)];
                 }
                 if (currenttile.GetComponent<Tilechangerwalk>().ocupided == false)
                 {
@@ -555,7 +571,17 @@ public class Playertilemover : MonoBehaviour
                 }
             }
         }
-        yield return new WaitForSeconds(0.1f);
+        foreach (GameObject tile in Tiles.array6)
+        {
+            if (tile.GetComponent<Tilechangerwalk>().target == true)
+            {
+                if (tile.GetComponent<Tilechangerwalk>().ocupided == true)
+                {
+                    tile.GetComponent<Tilechangerwalk>().inside.gameObject.GetComponent<EnemyHealth>().StartCoroutine("Fireballdam");
+                }
+            }
+        }
+        yield return new WaitForSeconds(1f);
 
         input = true;
         yield return null;
@@ -570,7 +596,7 @@ public class Playertilemover : MonoBehaviour
         {
             Vector3 Thisposs = transform.position;
 
-            for (int i = Mathf.RoundToInt(Thisposs.z)+1; i < 10; i++)
+            for (int i = Mathf.RoundToInt(Thisposs.z)+1; i < 12; i++)
             {
                 if (i == 1)
                 {
@@ -591,6 +617,10 @@ public class Playertilemover : MonoBehaviour
                 if (i == 9)
                 {
                     Tiles.array5[Mathf.RoundToInt((Thisposs.x - 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                }
+                if (i == 11)
+                {
+                    Tiles.array6[Mathf.RoundToInt((Thisposs.x - 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
                 }
             }
         }
@@ -620,6 +650,10 @@ public class Playertilemover : MonoBehaviour
                 {
                     Tiles.array5[Mathf.RoundToInt((Thisposs.x - 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
                 }
+                if (i == 11)
+                {
+                    Tiles.array6[Mathf.RoundToInt((Thisposs.x - 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                }
             }
         }
         if (Right== true)
@@ -646,7 +680,11 @@ public class Playertilemover : MonoBehaviour
             {
                 Currentarray = Tiles.array5;
             }
-            for (int i = Mathf.RoundToInt((Thisposs.x + 1) / 2); i < 5; i++)
+            if (Thisposs.z == 11)
+            {
+                Currentarray = Tiles.array6;
+            }
+            for (int i = Mathf.RoundToInt((Thisposs.x + 1) / 2); i < 6; i++)
             {
                 Currentarray[i].GetComponent<Tilechangerwalk>().target = true;
             }
@@ -675,6 +713,10 @@ public class Playertilemover : MonoBehaviour
             {
                 Currentarray = Tiles.array5;
             }
+            if (Thisposs.z == 11)
+            {
+                Currentarray = Tiles.array6;
+            }
             for (int i = 0; i < Mathf.RoundToInt((Thisposs.x - 1) / 2); i++)
             {
                 Currentarray[i].GetComponent<Tilechangerwalk>().target = true;
@@ -688,7 +730,7 @@ public class Playertilemover : MonoBehaviour
     }
     public IEnumerator SlashTar()
     {
-        yield return new WaitForSeconds(0.11f);
+        yield return new WaitForSeconds(0.1f);
         targeting = true;
         if (forward == true)
         {
@@ -697,27 +739,33 @@ public class Playertilemover : MonoBehaviour
             if (Mathf.RoundToInt(Thisposs.z) == 1)
             {
                 Tiles.array2[Mathf.RoundToInt((Thisposs.x - 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
-                Tiles.array2[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array2[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
                 Tiles.array2[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
 
             }
             if (Mathf.RoundToInt(Thisposs.z) == 3)
             {
                 Tiles.array3[Mathf.RoundToInt((Thisposs.x - 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
-                Tiles.array3[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array3[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
                 Tiles.array3[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
             }
             if (Mathf.RoundToInt(Thisposs.z) == 5)
             {
                 Tiles.array4[Mathf.RoundToInt((Thisposs.x - 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
-                Tiles.array4[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array4[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
                 Tiles.array4[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
             }
             if (Mathf.RoundToInt(Thisposs.z) == 7)
             {
                 Tiles.array5[Mathf.RoundToInt((Thisposs.x - 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
-                Tiles.array5[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array5[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
                 Tiles.array5[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+            }
+            if (Mathf.RoundToInt(Thisposs.z) == 9)
+            {
+                Tiles.array6[Mathf.RoundToInt((Thisposs.x - 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array6[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array6[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
             }
 
         }
@@ -728,27 +776,33 @@ public class Playertilemover : MonoBehaviour
             if (Mathf.RoundToInt(Thisposs.z) == 3)
             {
                 Tiles.array1[Mathf.RoundToInt((Thisposs.x - 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
-                Tiles.array1[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array1[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
                 Tiles.array1[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
             }
             if (Mathf.RoundToInt(Thisposs.z) == 5)
             {
                 Tiles.array2[Mathf.RoundToInt((Thisposs.x - 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
-                Tiles.array2[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array2[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
                 Tiles.array2[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
 
             }
             if (Mathf.RoundToInt(Thisposs.z) == 7)
             {
                 Tiles.array3[Mathf.RoundToInt((Thisposs.x - 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
-                Tiles.array3[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array3[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
                 Tiles.array3[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
             }
             if (Mathf.RoundToInt(Thisposs.z) == 9)
             {
                 Tiles.array4[Mathf.RoundToInt((Thisposs.x - 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
-                Tiles.array4[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array4[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
                 Tiles.array4[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+            }
+            if (Mathf.RoundToInt(Thisposs.z) == 11)
+            {
+                Tiles.array5[Mathf.RoundToInt((Thisposs.x - 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array5[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array5[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
             }
 
         }
@@ -784,6 +838,13 @@ public class Playertilemover : MonoBehaviour
             {
                 Tiles.array5[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
                 Tiles.array4[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array6[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+
+            }
+            if (Mathf.RoundToInt(Thisposs.z) == 11)
+            {
+                Tiles.array6[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array5[Mathf.RoundToInt((Thisposs.x + 1) / 2)].GetComponent<Tilechangerwalk>().target = true;
             }
         }
         if (Left == true)
@@ -792,32 +853,38 @@ public class Playertilemover : MonoBehaviour
 
             if (Mathf.RoundToInt(Thisposs.z) == 1)
             {
-                Tiles.array1[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
-                Tiles.array2[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array1[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array2[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
             }
             if (Mathf.RoundToInt(Thisposs.z) == 3)
             {
-                Tiles.array2[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
-                Tiles.array1[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
-                Tiles.array3[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array2[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array1[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array3[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
 
             }
             if (Mathf.RoundToInt(Thisposs.z) == 5)
             {
-                Tiles.array3[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
-                Tiles.array2[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
-                Tiles.array4[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array3[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array2[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array4[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
             }
             if (Mathf.RoundToInt(Thisposs.z) == 7)
             {
-                Tiles.array4[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
-                Tiles.array3[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
-                Tiles.array5[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array4[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array3[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array5[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
             }
             if (Mathf.RoundToInt(Thisposs.z) == 9)
             {
-                Tiles.array5[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
-                Tiles.array4[Mathf.RoundToInt((Thisposs.x - 2) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array5[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array4[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array6[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
+            }
+            if (Mathf.RoundToInt(Thisposs.z) == 11)
+            {
+                Tiles.array5[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
+                Tiles.array6[Mathf.RoundToInt((Thisposs.x - 2.5F) / 2)].GetComponent<Tilechangerwalk>().target = true;
             }
         }
         Slashcango = true;

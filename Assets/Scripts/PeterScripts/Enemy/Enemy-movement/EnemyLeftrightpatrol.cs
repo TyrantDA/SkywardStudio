@@ -26,7 +26,7 @@ public class EnemyLeftrightpatrol : MonoBehaviour
             if(go == false)
             {
                 go = true;
-                if(transform.position.x == 9)
+                if(transform.position.x == 11)
                 {
                     leftmove = true;
                     rightmove = false;
@@ -61,6 +61,10 @@ public class EnemyLeftrightpatrol : MonoBehaviour
                     if (endposs.z == 9)
                     {
                         currenttile = Tiles.array5[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                    }
+                    if (endposs.z == 11)
+                    {
+                        currenttile = Tiles.array6[Mathf.RoundToInt((endposs.x - 1) / 2)];
                     }
                     if (currenttile.GetComponent<Tilechangerwalk>().ocupided == false)
                     {
@@ -98,6 +102,10 @@ public class EnemyLeftrightpatrol : MonoBehaviour
                     {
                         currenttile = Tiles.array5[Mathf.RoundToInt((endposs.x - 1) / 2)];
                     }
+                    if (endposs.z == 11)
+                    {
+                        currenttile = Tiles.array6[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                    }
                     if (currenttile.GetComponent<Tilechangerwalk>().ocupided == false)
                     {
 
@@ -131,6 +139,10 @@ public class EnemyLeftrightpatrol : MonoBehaviour
                             if (endposs2.z == 9)
                             {
                                 currenttile = Tiles.array5[Mathf.RoundToInt((endposs2.x - 1) / 2)];
+                            }
+                            if (endposs.z == 11)
+                            {
+                                currenttile = Tiles.array6[Mathf.RoundToInt((endposs.x - 1) / 2)];
                             }
                             if (currenttile.GetComponent<Tilechangerwalk>().ocupided == false)
                             {
