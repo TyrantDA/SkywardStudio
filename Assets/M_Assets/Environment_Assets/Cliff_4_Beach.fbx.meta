@@ -3,7 +3,22 @@ guid: acf960e82bed0854cb37cff308240596
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lit10
+    second: {fileID: 2100000, guid: c04c7f902fb1f01428d7157092064ace, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert32
+    second: {fileID: 2100000, guid: ccd2032231221d84f8b477c3c3a04c4d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong2
+    second: {fileID: 2100000, guid: ccd2032231221d84f8b477c3c3a04c4d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
