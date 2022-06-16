@@ -22,14 +22,15 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Blue_Pipe_Metal
   m_Shader: {fileID: 4800000, guid: 6459b2db96a08ca41b0f9b39dc7ad59e, type: 3}
-  m_ShaderKeywords: NOKEWO N_F_EAL_ON N_F_GLO_ON N_F_NM_ON N_F_O_ON N_F_RELGI_ON
-    N_F_RL_ON N_F_SS_ON N_F_TRANSAFFSHA N_F_TRANSAFFSHA_ON
+  m_ShaderKeywords: N_F_EAL_ON N_F_GLO_ON N_F_NM_ON N_F_RELGI_ON N_F_SS_ON N_F_TRANSAFFSHA
+    N_F_TRANSAFFSHA_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
-  disabledShaderPasses: []
+  disabledShaderPasses:
+  - SRPDEFAULTUNLIT
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -156,7 +157,7 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Compa: 4
     - _Cull: 2
-    - _Culling: 2
+    - _Culling: 0
     - _CustomLightDirectionFollowObjectRotation: 0
     - _CustomLightDirectionIntensity: 0
     - _Cutoff: 0.5
@@ -213,11 +214,11 @@ Material:
     - _N_F_MSSOLTFO: 0
     - _N_F_NLASOBF: 0
     - _N_F_NM: 1
-    - _N_F_O: 1
+    - _N_F_O: 0
     - _N_F_OFLMB: 0
     - _N_F_PT: 0
     - _N_F_R: 0
-    - _N_F_RL: 1
+    - _N_F_RL: 0
     - _N_F_SCT: 0
     - _N_F_SL: 0
     - _N_F_SON: 0
@@ -260,13 +261,13 @@ Material:
     - _SelfLitIntensity: 0
     - _SelfLitPower: 2
     - _SelfShadowAffectedByLightShadowStrength: 0
-    - _SelfShadowHardness: 0.918
+    - _SelfShadowHardness: 0.947
     - _SelfShadowRealTimeShadowColorPower: 1
     - _SelfShadowRealtimeShadowIntensity: 1
     - _SelfShadowShadowTAtViewDirection: 0
-    - _SelfShadowThreshold: 0.748
+    - _SelfShadowThreshold: 0.882
     - _ShadowColorTexturePower: 0
-    - _ShadowHardness: 1
+    - _ShadowHardness: 0.865
     - _ShadowTColorPower: 1
     - _ShadowTHardness: 1
     - _ShadowTIntensity: 1
