@@ -7,13 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert11
-    second: {fileID: 2100000, guid: b73b4c338071a7045889348dfb3272bc, type: 2}
+      name: Leaves
+    second: {fileID: 2100000, guid: bae373c849da50643b32f6d2f9020b25, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert12
-    second: {fileID: 2100000, guid: bae373c849da50643b32f6d2f9020b25, type: 2}
+      name: Tree_Bark
+    second: {fileID: 2100000, guid: 63711e39db3431a4e99a953d142aaadf, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
