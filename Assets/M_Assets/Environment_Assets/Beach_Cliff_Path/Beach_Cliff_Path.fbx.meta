@@ -1,19 +1,9 @@
 fileFormatVersion: 2
-guid: 0627e45f7b4d0974f8d14cc64e59fb71
+guid: c935a6cf3b6338947a81755d21f625c6
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Grass
-    second: {fileID: 2100000, guid: 2f6c857e89992464e9f1c41795953214, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Rock
-    second: {fileID: 2100000, guid: af4ebef3b2aaec348abe9e0d7409a651, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
