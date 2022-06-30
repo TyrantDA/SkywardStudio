@@ -76,6 +76,7 @@ public class ItemListUI : MonoBehaviour
             }
         }
     }
+
     public int HasItem(ItemInfo myItem)
     {
         if (items.ContainsKey(myItem))
