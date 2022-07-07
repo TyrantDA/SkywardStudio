@@ -7,6 +7,9 @@ TagManager:
   - Food
   - Coin
   - Chesspeice
+  - CinemachineTarget
+  - Key
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -15,7 +18,7 @@ TagManager:
   - Water
   - UI
   - Chesspeices
-  - 
+  - Detection
   - 
   - 
   - 
