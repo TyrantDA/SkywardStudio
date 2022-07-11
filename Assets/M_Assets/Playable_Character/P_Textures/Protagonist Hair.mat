@@ -20,10 +20,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player_Test_M_1
+  m_Name: Protagonist Hair
   m_Shader: {fileID: 4800000, guid: 6459b2db96a08ca41b0f9b39dc7ad59e, type: 3}
-  m_ShaderKeywords: N_F_EAL_ON N_F_GLO_ON N_F_NM_ON N_F_O_ON N_F_RELGI_ON N_F_RL_ON
-    N_F_SS_ON N_F_TRANSAFFSHA N_F_TRANSAFFSHA_ON
+  m_ShaderKeywords: NOKEWO N_F_EAL_ON N_F_GLO_ON N_F_NM_ON N_F_O_ON N_F_RELGI_ON
+    N_F_RL_ON N_F_SS_ON N_F_TRANSAFFSHA N_F_TRANSAFFSHA_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -74,8 +74,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 4, y: 4}
+        m_Texture: {fileID: 2800000, guid: 08ff12391d6b42a439b99f2ef66e196d, type: 3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskGloss:
         m_Texture: {fileID: 0}
@@ -98,8 +98,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: d2786a2e15ddfad45886d4324575fba4, type: 3}
-        m_Scale: {x: 4, y: 4}
+        m_Texture: {fileID: 2800000, guid: c1de08edc16257a4687e88d937ede8cc, type: 3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
@@ -173,31 +173,31 @@ Material:
     - _FarDistanceMaxWidth: 10
     - _GIFlatShade: 0
     - _GIShadeThreshold: 0
-    - _GlossColorPower: 10
-    - _GlossIntensity: 0
+    - _GlossColorPower: 1.23
+    - _GlossIntensity: 0.194
     - _GlossMapScale: 0
-    - _GlossSoftness: 0.176
+    - _GlossSoftness: 0
     - _GlossTextureFollowLight: 0
     - _GlossTextureFollowObjectRotation: 0
     - _GlossTextureRotate: 0
     - _GlossTextureSoftness: 0
-    - _Glossiness: 0.477
+    - _Glossiness: 0.435
     - _GlossyReflections: 0
     - _Glow_Edge_Width: 1
     - _HighlightColorPower: 1
-    - _LigIgnoYNorDir: 0
+    - _LigIgnoYNorDir: 1
     - _LightAffectOutlineColor: 0
     - _LightAffectRimLightColor: 0
     - _LightAffectShadow: 0
     - _LightFalloffAffectShadowT: 0
     - _LightFalloffSoftness: 1
     - _LightIntensity: 1
-    - _MCIALO: 0
+    - _MCIALO: 1
     - _MCapIntensity: 1
     - _MVCOL: 0
-    - _MaiColPo: 1
+    - _MaiColPo: 0
     - _Metallic: 0
-    - _MixMainTexToOutline: 0
+    - _MixMainTexToOutline: 1
     - _N_F_CA: 0
     - _N_F_CLD: 0
     - _N_F_CO: 0
@@ -230,7 +230,7 @@ Material:
     - _OcclusionStrength: 1
     - _Opacity: 1
     - _Oper: 0
-    - _OutlineExtrudeMethod: 0
+    - _OutlineExtrudeMethod: 1
     - _OutlineWidth: 0
     - _OutlineWidthAffectedByViewDistance: 0
     - _OutlineZPostionInCamera: 0
@@ -242,16 +242,16 @@ Material:
     - _QueueOffset: 0
     - _RELG: 1
     - _ReceiveShadows: 1
-    - _ReduceShadowSpotDirectionalLight: 0.5
+    - _ReduceShadowSpotDirectionalLight: 2.37
     - _RefMetallic: 0
     - _RefVal: 0
     - _ReflectionIntensity: 0
     - _ReflectionRoughtness: 0
-    - _RimLigInt: 0.077
-    - _RimLightColorPower: 9.34
+    - _RimLigInt: 0
+    - _RimLightColorPower: 1
     - _RimLightInLight: 1
-    - _RimLightSoftness: 0.159
-    - _RimLightUnfill: 3.17
+    - _RimLightSoftness: 0
+    - _RimLightUnfill: 7.53
     - _SPECIN: 1
     - _SPECMODE: 0
     - _STIL: 0
@@ -260,11 +260,11 @@ Material:
     - _SelfLitIntensity: 0
     - _SelfLitPower: 2
     - _SelfShadowAffectedByLightShadowStrength: 0
-    - _SelfShadowHardness: 0.918
+    - _SelfShadowHardness: 1
     - _SelfShadowRealTimeShadowColorPower: 1
     - _SelfShadowRealtimeShadowIntensity: 1
-    - _SelfShadowShadowTAtViewDirection: 0
-    - _SelfShadowThreshold: 0.93
+    - _SelfShadowShadowTAtViewDirection: 1
+    - _SelfShadowThreshold: 0
     - _ShadowColorTexturePower: 0
     - _ShadowHardness: 1
     - _ShadowTColorPower: 1
@@ -298,13 +298,13 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _CustomLightDirection: {r: 0, g: 0, b: 10, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GlossColor: {r: 1, g: 1, b: 1, a: 1}
+    - _GlossColor: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}
     - _Glow_Color: {r: 1, g: 1, b: 1, a: 1}
     - _HighlightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _MainColor: {r: 1, g: 0.8148468, b: 0.5840786, a: 1}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _MainColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0.3773585, g: 0.37110814, b: 0.36845854, a: 1}
     - _OutlineOffset: {r: 0, g: 0, b: 0, a: 1}
-    - _OverallShadowColor: {r: 0.17674626, g: 0.17674626, b: 0.191, a: 1}
+    - _OverallShadowColor: {r: 0.4087577, g: 0.30998576, b: 0.509434, a: 1}
     - _PTCol: {r: 0, g: 0, b: 0, a: 1}
     - _RimLightColor: {r: 0.745283, g: 0.6475773, b: 0.5800552, a: 1}
     - _SelfLitColor: {r: 1, g: 1, b: 1, a: 1}
