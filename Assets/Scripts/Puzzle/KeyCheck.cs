@@ -16,6 +16,7 @@ public class KeyCheck : MonoBehaviour
         {
             if(Player.GetComponent<ItemListUI>().HasItem(keyList[x]) == KeyAmount[x])
             {
+
                 hold++;
             }
         }
@@ -29,6 +30,7 @@ public class KeyCheck : MonoBehaviour
             return false;
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))
@@ -37,6 +39,7 @@ public class KeyCheck : MonoBehaviour
             {
                 for(int x = 0; x < listOfAnimation.Count; x++)
                 {
+                    Debug.Log("done");
                     listOfAnimation[x].Play();
                 }
             }
