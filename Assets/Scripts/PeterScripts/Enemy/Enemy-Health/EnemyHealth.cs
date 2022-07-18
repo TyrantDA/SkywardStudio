@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int health;
+    public bool hit;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +27,16 @@ public class EnemyHealth : MonoBehaviour
 
         yield return null;
 
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Chesspeice"))
+        {
+            hit = true;
+        }
+        if (other.CompareTag("Enemy"))
+        {
+            hit = true;
+        }
     }
 }

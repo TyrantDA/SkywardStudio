@@ -44,27 +44,35 @@ public class EnemyLeftrightpatrol : MonoBehaviour
 
                     if (endposs.z == 1)
                     {
-                        currenttile = Tiles.array1[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                        currenttile = Tiles.array1[Mathf.RoundToInt((endposs.x + 1) / 2)];
                     }
                     if (endposs.z == 3)
                     {
-                        currenttile = Tiles.array2[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                        currenttile = Tiles.array2[Mathf.RoundToInt((endposs.x + 1) / 2)];
                     }
                     if (endposs.z == 5)
                     {
-                        currenttile = Tiles.array3[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                        currenttile = Tiles.array3[Mathf.RoundToInt((endposs.x + 1) / 2)];
                     }
                     if (endposs.z == 7)
                     {
-                        currenttile = Tiles.array4[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                        currenttile = Tiles.array4[Mathf.RoundToInt((endposs.x + 1) / 2)];
                     }
                     if (endposs.z == 9)
                     {
-                        currenttile = Tiles.array5[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                        currenttile = Tiles.array5[Mathf.RoundToInt((endposs.x + 1) / 2)];
                     }
                     if (endposs.z == 11)
                     {
-                        currenttile = Tiles.array6[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                        currenttile = Tiles.array6[Mathf.RoundToInt((endposs.x + 1) / 2)];
+                    }
+                    if (endposs.z == 13)
+                    {
+                        currenttile = Tiles.array7[Mathf.RoundToInt((endposs.x + 1) / 2)];
+                    }
+                    if (endposs.z == 15)
+                    {
+                        currenttile = Tiles.array8[Mathf.RoundToInt((endposs.x + 1) / 2)];
                     }
                     if (currenttile.GetComponent<Tilechangerwalk>().ocupided == false)
                     {
@@ -84,27 +92,35 @@ public class EnemyLeftrightpatrol : MonoBehaviour
 
                     if (endposs.z == 1)
                     {
-                        currenttile = Tiles.array1[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                        currenttile = Tiles.array1[Mathf.RoundToInt((endposs.x + 1) / 2)];
                     }
                     if (endposs.z == 3)
                     {
-                        currenttile = Tiles.array2[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                        currenttile = Tiles.array2[Mathf.RoundToInt((endposs.x + 1) / 2)];
                     }
                     if (endposs.z == 5)
                     {
-                        currenttile = Tiles.array3[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                        currenttile = Tiles.array3[Mathf.RoundToInt((endposs.x + 1) / 2)];
                     }
                     if (endposs.z == 7)
                     {
-                        currenttile = Tiles.array4[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                        currenttile = Tiles.array4[Mathf.RoundToInt((endposs.x + 1) / 2)];
                     }
                     if (endposs.z == 9)
                     {
-                        currenttile = Tiles.array5[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                        currenttile = Tiles.array5[Mathf.RoundToInt((endposs.x + 1) / 2)];
                     }
                     if (endposs.z == 11)
                     {
-                        currenttile = Tiles.array6[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                        currenttile = Tiles.array6[Mathf.RoundToInt((endposs.x + 1) / 2)];
+                    }
+                    if (endposs.z == 13)
+                    {
+                        currenttile = Tiles.array7[Mathf.RoundToInt((endposs.x + 1) / 2)];
+                    }
+                    if (endposs.z == 15)
+                    {
+                        currenttile = Tiles.array8[Mathf.RoundToInt((endposs.x + 1) / 2)];
                     }
                     if (currenttile.GetComponent<Tilechangerwalk>().ocupided == false)
                     {
@@ -114,6 +130,7 @@ public class EnemyLeftrightpatrol : MonoBehaviour
                     }
                     else
                     {
+
                         leftmove = true;
                         rightmove = false;
                         if (leftmove == true)
@@ -122,27 +139,35 @@ public class EnemyLeftrightpatrol : MonoBehaviour
 
                             if (endposs2.z == 1)
                             {
-                                currenttile = Tiles.array1[Mathf.RoundToInt((endposs2.x - 1) / 2)];
+                                currenttile = Tiles.array1[Mathf.RoundToInt((endposs2.x + 1) / 2)];
                             }
                             if (endposs2.z == 3)
                             {
-                                currenttile = Tiles.array2[Mathf.RoundToInt((endposs2.x - 1) / 2)];
+                                currenttile = Tiles.array2[Mathf.RoundToInt((endposs2.x + 1) / 2)];
                             }
                             if (endposs2.z == 5)
                             {
-                                currenttile = Tiles.array3[Mathf.RoundToInt((endposs2.x - 1) / 2)];
+                                currenttile = Tiles.array3[Mathf.RoundToInt((endposs2.x + 1) / 2)];
                             }
                             if (endposs2.z == 7)
                             {
-                                currenttile = Tiles.array4[Mathf.RoundToInt((endposs2.x - 1) / 2)];
+                                currenttile = Tiles.array4[Mathf.RoundToInt((endposs2.x + 1) / 2)];
                             }
                             if (endposs2.z == 9)
                             {
-                                currenttile = Tiles.array5[Mathf.RoundToInt((endposs2.x - 1) / 2)];
+                                currenttile = Tiles.array5[Mathf.RoundToInt((endposs2.x + 1) / 2)];
                             }
-                            if (endposs.z == 11)
+                            if (endposs2.z == 11)
                             {
-                                currenttile = Tiles.array6[Mathf.RoundToInt((endposs.x - 1) / 2)];
+                                currenttile = Tiles.array6[Mathf.RoundToInt((endposs2.x + 1) / 2)];
+                            }
+                            if (endposs2.z == 13)
+                            {
+                                currenttile = Tiles.array7[Mathf.RoundToInt((endposs2.x + 1) / 2)];
+                            }
+                            if (endposs2.z == 15)
+                            {
+                                currenttile = Tiles.array8[Mathf.RoundToInt((endposs2.x +  1) / 2)];
                             }
                             if (currenttile.GetComponent<Tilechangerwalk>().ocupided == false)
                             {
