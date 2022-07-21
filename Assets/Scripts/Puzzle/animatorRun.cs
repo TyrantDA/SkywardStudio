@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class animatorRun : MonoBehaviour
 {
-    [SerializeField] List<Animation> AnimationList = new List<Animation>();
+    [SerializeField] List<Animator> AnimationList = new List<Animator>();
     [SerializeField] List<controlPanel> switchList = new List<controlPanel>();
+    public string setName;
     bool running;
     // Start is called before the first frame update
     void Start()
@@ -32,7 +33,7 @@ public class animatorRun : MonoBehaviour
                 running = true;
                 for(int x = 0; x < AnimationList.Count; x++)
                 {
-                    AnimationList[x].Play();
+                    AnimationList[x].SetTrigger(setName);
                 }
             }
         }
