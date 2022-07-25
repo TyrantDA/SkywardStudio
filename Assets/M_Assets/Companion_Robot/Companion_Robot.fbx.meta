@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 79d875c53a17de54d81fc59faf08a49a
+guid: bd90d32f5879f0b41b638218a991ece8
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,13 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Not_Shiny
-    second: {fileID: 2100000, guid: 00079842abfab8043b9d12ac4c448886, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: 341955a85c59e9744875e9a9dcb98438, type: 2}
+      name: Glass
+    second: {fileID: 2100000, guid: 4747bcf6e029c844a873a9249aa98679, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
