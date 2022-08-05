@@ -5,10 +5,12 @@ using UnityEngine;
 public class controlPanel : MonoBehaviour
 {
     bool activated;
+    bool collide;
 
     private void Start()
     {
         activated = false;
+        collide = false;
     }
 
     public bool getActivated()
@@ -18,16 +20,40 @@ public class controlPanel : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerStay(Collider other)
     {
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(!activated)
+        {
+            collide = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(!activated)
+        {
+            collide = false;
+        }
+    }
+
+    private void Update()
+    {
         if (!activated)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (collide)
             {
-                Debug.Log("pressed");
-                activated = true;
-            }
-            else
-            {
-                Debug.Log("need to press E");
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    Debug.Log("pressed");
+                    activated = true;
+                }
+                else
+                {
+                    Debug.Log("need to press E");
+                }
             }
         }
     }
