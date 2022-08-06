@@ -337,7 +337,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 07ba2df7b2505b745be7f57f3fb9ba86, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 248.05
+      value: 244.62
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 07ba2df7b2505b745be7f57f3fb9ba86, type: 3}
       propertyPath: m_LocalPosition.y
@@ -414,11 +414,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bd90d32f5879f0b41b638218a991ece8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: 0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bd90d32f5879f0b41b638218a991ece8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7071068
+      value: 0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bd90d32f5879f0b41b638218a991ece8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -534,7 +534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 317ee5322edcfa045bc1a5840f7f35f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 243.1486
+      value: 251.37
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 317ee5322edcfa045bc1a5840f7f35f9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -576,6 +576,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Extendible_Bridge
       objectReference: {fileID: 0}
+    - target: {fileID: 3521089730922251733, guid: 317ee5322edcfa045bc1a5840f7f35f9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6194f2b182ddfa4f8bd8b76e139bdbc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 317ee5322edcfa045bc1a5840f7f35f9, type: 3}
 --- !u!1 &1364302915

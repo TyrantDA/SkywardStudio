@@ -7,8 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Eye_Glow
+    second: {fileID: 2100000, guid: 7e6de2db7012cf647860ac5b2a4cb3e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Glass
     second: {fileID: 2100000, guid: 4747bcf6e029c844a873a9249aa98679, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal_Wire
+    second: {fileID: 2100000, guid: c81c33e079e9fb54c8a56ff59b5f6f1f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert31
+    second: {fileID: 2100000, guid: 9c7db8372aaaf364394813ccdf685c4e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
