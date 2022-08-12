@@ -7,6 +7,8 @@ public class Playertilemover : MonoBehaviour
     public bool input;
     public Tileholder Tiles;
     public GameObject currenttile;
+    public GameObject actualcurrenttile;
+
     public GameObject nexttile;
     public GameObject pushing;
 
@@ -77,6 +79,47 @@ public class Playertilemover : MonoBehaviour
         if (input == true)
         {
             Starttile = transform.position;
+            Vector3 poss = transform.position;
+            if (poss.z == -1)
+            {
+                actualcurrenttile = Tiles.arrayMIUS1[Mathf.RoundToInt((poss.x + 1) / 2)];
+            }
+            if (poss.z == 1)
+            {
+                actualcurrenttile = Tiles.array1[Mathf.RoundToInt((poss.x + 1) / 2)];
+            }
+            if (poss.z == 3)
+            {
+                actualcurrenttile = Tiles.array2[Mathf.RoundToInt((poss.x + 1) / 2)];
+            }
+            if (poss.z == 5)
+            {
+                actualcurrenttile = Tiles.array3[Mathf.RoundToInt((poss.x + 1) / 2)];
+            }
+            if (poss.z == 7)
+            {
+                actualcurrenttile = Tiles.array4[Mathf.RoundToInt((poss.x + 1) / 2)];
+            }
+            if (poss.z == 9)
+            {
+                actualcurrenttile = Tiles.array5[Mathf.RoundToInt((poss.x + 1) / 2)];
+            }
+            if (poss.z == 11)
+            {
+                actualcurrenttile = Tiles.array6[Mathf.RoundToInt((poss.x + 1) / 2)];
+            }
+            if (poss.z == 13)
+            {
+                actualcurrenttile = Tiles.array7[Mathf.RoundToInt((poss.x + 1) / 2)];
+            }
+            if (poss.z == 15)
+            {
+                actualcurrenttile = Tiles.array8[Mathf.RoundToInt((poss.x + 1) / 2)];
+            }
+            if (poss.z == 17)
+            {
+                actualcurrenttile = Tiles.array9[Mathf.RoundToInt((poss.x + 1) / 2)];
+            }
 
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
@@ -319,7 +362,6 @@ public class Playertilemover : MonoBehaviour
             }
             if (Input.GetAxis("Vertical") == 1)
             {
-                move++;
                 targeting = false;
                 Fireballcango = false;
                 Slashcango = false;
@@ -382,7 +424,6 @@ public class Playertilemover : MonoBehaviour
             }
             if (Input.GetAxis("Vertical") == -1)
             {
-                move++;
 
                 targeting = false;
                 Fireballcango = false;
@@ -444,7 +485,6 @@ public class Playertilemover : MonoBehaviour
             }
             if (Input.GetAxis("Horizontal") == -1)
             {
-                move++;
 
                 targeting = false;
                 Fireballcango = false;
@@ -506,7 +546,6 @@ public class Playertilemover : MonoBehaviour
             }
             if (Input.GetAxis("Horizontal") == 1)
             {
-                move++;
 
                 targeting = false;
                 Fireballcango = false;
@@ -606,6 +645,8 @@ public class Playertilemover : MonoBehaviour
             yield return null;
             if (endposs.z - transform.position.z < 0.05)
             {
+                move++;
+
                 transform.position = endposs;
             }
         }
@@ -624,6 +665,8 @@ public class Playertilemover : MonoBehaviour
             yield return null;
             if (transform.position.z - endposs.z < 0.05)
             {
+                move++;
+
                 transform.position = endposs;
             }
         }
@@ -641,6 +684,8 @@ public class Playertilemover : MonoBehaviour
             yield return null;
             if (transform.position.x - endposs.x < 0.05)
             {
+                move++;
+
                 transform.position = endposs;
             }
         }
@@ -659,6 +704,8 @@ public class Playertilemover : MonoBehaviour
             yield return null;
             if (endposs.x - transform.position.x < 0.05)
             {
+                move++;
+
                 transform.position = endposs;
             }
         }
@@ -703,19 +750,19 @@ public class Playertilemover : MonoBehaviour
 
         if(forward == true)
         {
-            push = new Vector3(0, 0, 8);
+            push = new Vector3(0, 0, 2);
         }
         if (Back == true)
         {
-            push = new Vector3(0, 0, -8);
+            push = new Vector3(0, 0, -2);
         }
         if (Left == true)
         {
-            push = new Vector3(-8, 0, 0);
+            push = new Vector3(-2, 0, 0);
         }
         if (Right == true)
         {
-            push = new Vector3(8, 0, 0);
+            push = new Vector3(2, 0, 0);
         }
         foreach (GameObject tile in Tiles.array1)
         {

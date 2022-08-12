@@ -9,21 +9,33 @@ public class Tilechangerwalk : MonoBehaviour
     public Material Material1;
     public Material Material2;
     public Material Material3;
+    public Material Material4;
 
     public GameObject player;
     public GameObject inside;
+    public Playertilemover Playermover;
+    public int counter;
     public bool ocupided;
     public bool target;
+    public bool hasplayer;
+    public bool attack;
+
+
     //in the editor this is what you would set as the object you wan't to change
 
     void Start()
     {
+        counter = 0;
         ocupided = false;
         this.GetComponent<MeshRenderer>().material = Material1;
     }
     private void OnTriggerStay(Collider other)
     {
         ocupided = true;
+        if(other.tag == "Player")
+        {
+            hasplayer = true;
+        }
         inside = other.gameObject;
         if (target == false)
         {
@@ -32,6 +44,8 @@ public class Tilechangerwalk : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        hasplayer = false;
+
         ocupided = false;
         inside = null;
         if (target == false)
@@ -41,20 +55,46 @@ public class Tilechangerwalk : MonoBehaviour
     }
     void Update()
     {
+        if (attack == true)
+        {
+            this.GetComponent<MeshRenderer>().material = Material4;
 
+        }
+        if (counter!= Playermover.move && ocupided == false && hasplayer == false)
+        {
+            counter = Playermover.move;
+            target = false;
+            this.GetComponent<MeshRenderer>().material = Material1;
+
+        }
+        if (counter != Playermover.move && ocupided == true && hasplayer == true)
+        {
+            counter = Playermover.move;
+            target = false;
+            this.GetComponent<MeshRenderer>().material = Material1;
+
+        }
+        if (counter != Playermover.move && ocupided == true && hasplayer == false)
+        {
+            counter = Playermover.move;
+            target = false;
+            this.GetComponent<MeshRenderer>().material = Material2;
+
+        }
         if (target== true)
         {
             this.GetComponent<MeshRenderer>().material = Material3;
 
         }
-        if (player.GetComponent<Playertilemover>().targeting == false)
-        {
-            target = false;
-            if (ocupided == false)
-            {
-                this.GetComponent<MeshRenderer>().material = Material1;
-            }
-        }
+
+        //     if (player.GetComponent<Playertilemover>().targeting == false)
+        //   {
+        //      target = false;
+        //       if (ocupided == false)
+        //      {
+        //          this.GetComponent<MeshRenderer>().material = Material1;
+        //      }
+        // }
     }
 
 }
