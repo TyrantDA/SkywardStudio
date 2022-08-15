@@ -3,7 +3,27 @@ guid: 353055913b01c87499f4bc7c1ce4d329
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Animated_Cable
+    second: {fileID: 2100000, guid: 37cf9d4325a1b89439bd8016e4b71308, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: 070ac93aacb20654883243277b7bdc40, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn1
+    second: {fileID: 2100000, guid: 3ba3a6cee6eaf854b94714eac13f948f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert11
+    second: {fileID: 2100000, guid: d1ae6fa58656701428a6e0f24114c61a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -3,7 +3,27 @@ guid: 07ba2df7b2505b745be7f57f3fb9ba86
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Moving_Belt
+    second: {fileID: 2100000, guid: 37cf9d4325a1b89439bd8016e4b71308, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blinn1
+    second: {fileID: 2100000, guid: d705db9989930ca4bbf7c264612fdb8f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert26
+    second: {fileID: 2100000, guid: 1b2f6e9dd4156864d86e2738e2aad43a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phong1
+    second: {fileID: 2100000, guid: 4747bcf6e029c844a873a9249aa98679, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
