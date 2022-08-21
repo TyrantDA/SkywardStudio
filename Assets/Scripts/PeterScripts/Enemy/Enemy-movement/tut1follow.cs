@@ -17,7 +17,25 @@ public class tut1follow : MonoBehaviour
         float moveposs = player.transform.position.x;
         transform.position = new Vector3(moveposs, transform.position.y, transform.position.z);
 
+        if (player.GetComponent<Playertilemover>().Left == true)
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, 180f, transform.rotation.z);
 
+        }
+        if (player.GetComponent<Playertilemover>().Right == true)
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, 0, transform.rotation.z);
 
+        }
+        if (player.GetComponent<Playertilemover>().forward == true)
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, 90, transform.rotation.z);
+
+        }
+        if (player.GetComponent<Playertilemover>().Back == true)
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.x, 90, transform.rotation.z);
+
+        }
     }
 }

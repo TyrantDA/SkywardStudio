@@ -47,7 +47,7 @@ public class Camramover : MonoBehaviour
     {
 
         Vector3 startposs = transform.position;
-        Vector3 endposs = transform.position + new Vector3(0, 0, 0.5f);
+        Vector3 endposs = transform.position + new Vector3(0, 0, 1f);
         while (transform.position.z != endposs.z)
         {
             transform.position += (endposs - startposs) * Time.deltaTime * 1;
@@ -64,7 +64,7 @@ public class Camramover : MonoBehaviour
     {
 
         Vector3 startposs = transform.position;
-        Vector3 endposs = transform.position - new Vector3(0, 0, 0.5f);
+        Vector3 endposs = transform.position - new Vector3(0, 0, 1f);
         while (transform.position.z != endposs.z)
         {
             transform.position += (endposs - startposs) * Time.deltaTime * 1;
@@ -80,7 +80,7 @@ public class Camramover : MonoBehaviour
     {
 
         Vector3 startposs = transform.position;
-        Vector3 endposs = transform.position - new Vector3(0.5f, 0, 0);
+        Vector3 endposs = transform.position - new Vector3(1f, 0, 0);
         while (transform.position.x != endposs.x)
         {
             transform.position += (endposs - startposs) * Time.deltaTime * 1;
@@ -97,7 +97,7 @@ public class Camramover : MonoBehaviour
     {
 
         Vector3 startposs = transform.position;
-        Vector3 endposs = transform.position + new Vector3(0.5f, 0, 0);
+        Vector3 endposs = transform.position + new Vector3(1f, 0, 0);
         while (transform.position.x != endposs.x)
         {
             transform.position += (endposs - startposs) * Time.deltaTime * 1;

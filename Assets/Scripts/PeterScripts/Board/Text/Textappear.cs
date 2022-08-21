@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Textappear : MonoBehaviour
 {
-    public float delay = 0.1f;
+    public float delay = 0.01f;
     public string fulltext;
     private string currenttext = "";
     public bool done;

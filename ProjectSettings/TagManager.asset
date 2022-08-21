@@ -6,6 +6,14 @@ TagManager:
   tags:
   - Chesspeice
   - Enemy
+  - Water
+  - bullet
+  - star
+  - floor
+  - spring
+  - elec
+  - missile
+  - saw
   layers:
   - Default
   - TransparentFX
@@ -14,8 +22,8 @@ TagManager:
   - Water
   - UI
   - MOD
-  - 
-  - 
+  - star
+  - player
   - 
   - 
   - 

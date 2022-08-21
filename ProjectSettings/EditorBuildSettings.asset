@@ -5,17 +5,47 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/start.unity
     guid: ef993027f6e7bda4294de4ae9acd7659
-  - enabled: 1
-    path: Assets/Scenes/progammerScene/Alex.unity
+  - enabled: 0
+    path: Assets/Scenes/Combat Scenes/progammerScene/Alex.unity
     guid: c47d2a89e75d56142afd8d1160e941ae
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Scene_M/Overworld_Map.unity
     guid: b8f2f3954d91bcc42836e7cf90024eb2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
+  - enabled: 1
+    path: Assets/Scenes/Combat Scenes/Comabtmenue.unity
+    guid: 4ce1d2b454956274f8a5b12753692e9d
+  - enabled: 1
+    path: Assets/Scenes/Combat Scenes/Tutorial 1.unity
+    guid: 437f4e621b37f7447a464a5db5e2f63b
+  - enabled: 1
+    path: Assets/Scenes/Combat Scenes/Tutorial 2.unity
+    guid: 97ed044491021b04da1cd818748a51c9
+  - enabled: 1
+    path: Assets/Scenes/Combat Scenes/Tutorial 2.5.unity
+    guid: fbd4b7b58a97ba74a8509d6da5b9a84c
+  - enabled: 1
+    path: Assets/Scenes/Combat Scenes/Tutorial 3.unity
+    guid: d7a718d66dd63f145801482225febbc7
+  - enabled: 1
+    path: Assets/Scenes/Combat Scenes/Tutorial 3.2.unity
+    guid: ac1840958aae99d4e8cc4877889e8272
+  - enabled: 1
+    path: Assets/Scenes/Combat Scenes/Tutorial 4.unity
+    guid: 7c688977f8056f348bd3f46f9dfde9e6
+  - enabled: 1
+    path: Assets/Scenes/Combat Scenes/Tutorial 4.8.unity
+    guid: 3dfe453874e9a4d4c850398200abd965
+  - enabled: 1
+    path: Assets/Scenes/Combat Scenes/Tutorial 5.unity
+    guid: e4b568353d968334db1915907adfd119
+  - enabled: 1
+    path: Assets/Scenes/Combat Scenes/Tutorial 6.2.unity
+    guid: c695cbd1f35358c46baa174528890202
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
