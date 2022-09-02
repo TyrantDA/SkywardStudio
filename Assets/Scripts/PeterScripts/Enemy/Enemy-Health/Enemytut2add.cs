@@ -17,7 +17,7 @@ public class Enemytut2add : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hold.health <= 2)
+        if (hold.health <= 19)
         {
             if (firsttime == true)
             {

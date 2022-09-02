@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Textseqtut1 : MonoBehaviour
 {
@@ -18,6 +20,8 @@ public class Textseqtut1 : MonoBehaviour
 
 
     public GameObject joystick1;
+    public GameObject joystick15;
+
     public GameObject joystick2;
 
     public Playertilemover player;
@@ -34,9 +38,15 @@ public class Textseqtut1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         if (text2.GetComponent<Textappear>().done == true)
         {
             joystick1.SetActive(true);
+        }
+        if (joystick1.GetComponent<Textappear>().done == true)
+        {
+            joystick15.SetActive(true);
         }
         if (player.move > 2 && joystick1.GetComponent<Textappear>().done == true)
         {
@@ -53,6 +63,8 @@ public class Textseqtut1 : MonoBehaviour
         {
             text1.SetActive(false);
             joystick1.SetActive(false);
+            joystick15.SetActive(false);
+
             joystick2.SetActive(false);
             text2.SetActive(false);
             text3.SetActive(true);
@@ -81,7 +93,15 @@ public class Textseqtut1 : MonoBehaviour
         if (text7.GetComponent<Textappear>().done == true)
         {
             text8.SetActive(true);
+            StartCoroutine("wait");
         }
+    }
+    public IEnumerator wait()
+    {
+        yield return new WaitForSeconds(10);
+
+        SceneManager.LoadScene("Tutorial 2");
+
     }
 
 

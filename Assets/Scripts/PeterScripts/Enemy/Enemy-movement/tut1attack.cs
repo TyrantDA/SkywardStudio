@@ -10,21 +10,28 @@ public class tut1attack : MonoBehaviour
     public int fuel;
     public Playertilemover hold;
     public GameObject modual;
+    public GameObject mesh;
+
+    public HealthBar healthbar;
 
     // Start is called before the first frame update
     void Start()
     {
+
         attacked = false;
         fuel = 30;
+        healthbar.SetMaxHealth(fuel);
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        healthbar.SetHealth(fuel);
+
         float attackposs = player.transform.position.z;
         if (attackposs == (transform.position.z - 2))
         {
-            print("d");
             StartCoroutine("nockback");
         }
         if (attacked == true)
@@ -46,7 +53,9 @@ public class tut1attack : MonoBehaviour
         {
             this.GetComponent<tut1follow>().enabled = false;
             this.GetComponent<tut1attack>().enabled = false;
-            this.GetComponent<MeshRenderer>().enabled = false;
+
+            transform.GetChild(0).gameObject.SetActive(false);
+
             var newSquare = Instantiate(modual, new Vector3(this.transform.position.x, 1, this.transform.position.z), Quaternion.identity);
             StartCoroutine("upmove");
 
@@ -54,6 +63,7 @@ public class tut1attack : MonoBehaviour
     }
     public IEnumerator nockback()
     {
+        transform.rotation = Quaternion.Euler(transform.rotation.x, 90, transform.rotation.z);
         player.gameObject.GetComponent<Playertilemover>().input = false;
         player.gameObject.GetComponent<Playertilemover>().pusehd = true;
         attacked = true;
@@ -65,14 +75,17 @@ public class tut1attack : MonoBehaviour
         Vector3 saveposs3 = player.transform.position - new Vector3(0, 0, 4);
         Vector3 saveposs4 = player.transform.position - new Vector3(0, 0, 6);
         Vector3 saveposs = saveposs1;
+
         while (player.transform.position.z != endposs.z)
         {
             player.transform.position += (endposs - startposs) * Time.deltaTime * 1;
             yield return null;
             if(player.gameObject.GetComponent<Playertilemover>().hit == true)
             {
+                player.gameObject.GetComponent<Playertilemover>().hit = false;
                 endposs = saveposs;
-                startposs = player.transform.position - new Vector3(0, 0, 8) ;
+                startposs = player.transform.position - new Vector3(0, 0, 8);
+
             }
             if (player.transform.position.z - saveposs2.z < 0.05)
             {
@@ -89,7 +102,7 @@ public class tut1attack : MonoBehaviour
                 saveposs = saveposs4;
 
             }
-            if (Mathf.Abs(player.transform.position.z - endposs.z) < 0.05)
+            if (Mathf.Abs(player.transform.position.z - endposs.z) < 0.10)
             {
 
                 player.transform.position = endposs;
@@ -103,7 +116,7 @@ public class tut1attack : MonoBehaviour
     }
     public IEnumerator upmove()
     {
-
+       
         Vector3 startposs = transform.position;
         Vector3 endposs = transform.position + new Vector3(0, 4, 0);
         while (transform.position.y != endposs.y)
