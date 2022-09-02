@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class controlPanel : MonoBehaviour
 {
+    public Animator lever;
+    public Animator grill;
+    public Animator wheel;
+    public Animator Antenna;
+    public bool powered;
+
     bool activated;
     bool collide;
-
+    
     private void Start()
     {
         activated = false;
@@ -41,18 +47,25 @@ public class controlPanel : MonoBehaviour
 
     private void Update()
     {
-        if (!activated)
+        if (powered)
         {
-            if (collide)
+            if (!activated)
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (collide)
                 {
-                    Debug.Log("pressed");
-                    activated = true;
-                }
-                else
-                {
-                    Debug.Log("need to press E");
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        Debug.Log("pressed");
+                        activated = true;
+                        lever.SetTrigger("Activate");
+                        grill.SetTrigger("MoveGrill");
+                        wheel.SetTrigger("MoveWheel");
+                        Antenna.SetTrigger("MoveAntenna");
+                    }
+                    else
+                    {
+                        Debug.Log("need to press E");
+                    }
                 }
             }
         }
