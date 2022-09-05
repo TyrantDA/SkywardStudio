@@ -9,7 +9,9 @@ public class LightChange : MonoBehaviour
     [SerializeField] controlPanel[] cP;
     public LightOnOff powerOn;
     public controlPanel powerOnCP;
-
+    public AudioSource noice;
+    bool playedfirst;
+    bool playedSecond;
 
     // Start is called before the first frame update
     void Start()
@@ -37,12 +39,22 @@ public class LightChange : MonoBehaviour
         else if(hold == 1)
         {
             rend.sharedMaterial = material[1];
+            if (!playedfirst)
+            {
+                noice.Play();
+                playedfirst = true;
+            }
         }
         else if(hold == 2)
         {
             rend.sharedMaterial = material[2];
             powerOn.onOff = true;
             powerOnCP.powered = true;
+            if (!playedSecond)
+            {
+                noice.Play();
+                playedSecond = true;
+            }
         }
     }
 }

@@ -6,6 +6,7 @@ public class animatorRun : MonoBehaviour
 {
     [SerializeField] List<Animator> AnimationList = new List<Animator>();
     [SerializeField] List<controlPanel> switchList = new List<controlPanel>();
+    [SerializeField] List<AudioSource> noiceList = new List<AudioSource>();
     public string setName;
     bool running;
     // Start is called before the first frame update
@@ -34,6 +35,7 @@ public class animatorRun : MonoBehaviour
                 for(int x = 0; x < AnimationList.Count; x++)
                 {
                     AnimationList[x].SetTrigger(setName);
+                    noiceList[x].Play();
                 }
             }
         }

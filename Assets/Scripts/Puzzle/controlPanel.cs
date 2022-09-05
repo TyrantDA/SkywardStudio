@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class controlPanel : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class controlPanel : MonoBehaviour
     public Animator wheel;
     public Animator Antenna;
     public bool powered;
+    public AudioSource noice;
+    public Text pe;
+    public Text tghnp;
+    public Text aa;
 
     bool activated;
     bool collide;
@@ -34,6 +39,18 @@ public class controlPanel : MonoBehaviour
         if(!activated)
         {
             collide = true;
+            if(!powered)
+            {
+                tghnp.gameObject.SetActive(true);
+            }
+            else
+            {
+                pe.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            aa.gameObject.SetActive(true);
         }
     }
 
@@ -42,6 +59,18 @@ public class controlPanel : MonoBehaviour
         if(!activated)
         {
             collide = false;
+            if (!powered)
+            {
+                tghnp.gameObject.SetActive(false);
+            }
+            else
+            {
+                pe.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            aa.gameObject.SetActive(false);
         }
     }
 
@@ -61,6 +90,8 @@ public class controlPanel : MonoBehaviour
                         grill.SetTrigger("MoveGrill");
                         wheel.SetTrigger("MoveWheel");
                         Antenna.SetTrigger("MoveAntenna");
+                        noice.Play();
+                        pe.gameObject.SetActive(false);
                     }
                     else
                     {
