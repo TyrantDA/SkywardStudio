@@ -9,7 +9,8 @@ public class ItemListUI : MonoBehaviour
     public GameObject uiItemPrefab;
     public GameObject uiCoin;
     public int addAmount = 1;
-    public ItemInfo food;
+    public ItemInfo collectables;
+    public ItemInfo key;
 
     Dictionary<ItemInfo, int> items = new Dictionary<ItemInfo, int>();
     Dictionary<ItemInfo, UIItem> uiItems = new Dictionary<ItemInfo, UIItem>();
@@ -85,12 +86,37 @@ public class ItemListUI : MonoBehaviour
             return 0;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("running");
+        if (other.gameObject.CompareTag("collectables"))
+        {
+            Debug.Log("collectables");
+            Destroy(other.gameObject);
+            AddItem(collectables);
+        }
+
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            Destroy(other.gameObject);
+            addCoin();
+        }
+
+        if (other.gameObject.CompareTag("Key"))
+        {
+            Destroy(other.gameObject);
+            AddItem(key);
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Food"))
+        Debug.Log("running");
+        if (collision.gameObject.CompareTag("collectables"))
         {
+            Debug.Log("collectables");
             Destroy(collision.gameObject);
-            AddItem(food);
+            AddItem(collectables);
         }
 
         if(collision.gameObject.CompareTag("Coin"))
@@ -101,8 +127,8 @@ public class ItemListUI : MonoBehaviour
 
         if(collision.gameObject.CompareTag("Key"))
         {
-            AddItem(collision.gameObject.GetComponent<KeyHolder>().getKey());
             Destroy(collision.gameObject);
+            AddItem(key);
         }
     }
 }

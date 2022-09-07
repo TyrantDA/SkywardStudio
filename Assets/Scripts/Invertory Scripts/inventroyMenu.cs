@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class inventroyMenu : MonoBehaviour
 {
@@ -12,6 +13,25 @@ public class inventroyMenu : MonoBehaviour
         
     }
 
+    public void resume()
+    {
+        paused = false;
+        Time.timeScale = 1f;
+        menu.SetActive(false);
+    }
+
+    public void QuitTOMenu()
+    {
+        paused = false;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("start");
+    }
+
+
+    private void SetCursorState(bool newState)
+    {
+        Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -22,12 +42,14 @@ public class inventroyMenu : MonoBehaviour
                 paused = true;
                 Time.timeScale = 0f;
                 menu.SetActive(true);
+                SetCursorState(false);
             }
             else
             {
                 paused = false;
                 Time.timeScale = 1f;
                 menu.SetActive(false);
+                SetCursorState(true);
             }
         }
     }

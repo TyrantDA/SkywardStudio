@@ -31,7 +31,7 @@ public class detection : MonoBehaviour
             }
         }
 
-        if(!seen)
+        if (!seen)
         {
             pat.RunPatrol();
         }

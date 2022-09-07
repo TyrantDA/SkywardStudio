@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KeyCheck : MonoBehaviour
 {
     [SerializeField] List<ItemInfo> keyList = new List<ItemInfo>();
     [SerializeField] List<int> KeyAmount = new List<int>();
 
-    public List<Animation> listOfAnimation = new List<Animation>();
+    [SerializeField] List<Animator>  AnimatorList = new List<Animator>();
+    public string setName;
+    public Text doesNotHaveFortKey;
+    public AudioSource noice;
 
     bool checkRequirements(GameObject Player)
     {
@@ -37,12 +41,26 @@ public class KeyCheck : MonoBehaviour
         {
             if(checkRequirements(other.gameObject))
             {
-                for(int x = 0; x < listOfAnimation.Count; x++)
+                for(int x = 0; x < AnimatorList.Count; x++)
                 {
                     Debug.Log("done");
-                    listOfAnimation[x].Play();
+                    AnimatorList[x].SetTrigger(setName);
+                    noice.Play();
                 }
             }
+            else
+            {
+                doesNotHaveFortKey.gameObject.SetActive(true);
+            }
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            doesNotHaveFortKey.gameObject.SetActive(false);
+        }
+
     }
 }

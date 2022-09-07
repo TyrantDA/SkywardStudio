@@ -11,10 +11,18 @@ public class changeLevel : MonoBehaviour
     {
         
     }
-
+    private void SetCursorState(bool newState)
+    {
+        Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
     // Update is called once per frame
     public void ButtonPress()
     {
+        SetCursorState(true);
         SceneManager.LoadScene(level);
     }
 }

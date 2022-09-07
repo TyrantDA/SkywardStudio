@@ -21,7 +21,7 @@ public class buubleRandomizer : MonoBehaviour
             List<int> hasRunning = new List<int>();
             bool alreadyRunning = false;
             float hold = Random.Range(0, bubblePerSecond);
-            Debug.Log(bubblePerSecond);
+            //Debug.Log(bubblePerSecond);
             for (int x = 0; x < bubblePerSecond; x++)
             {
                 int runSelect = Random.Range(0, (AnimationList.Count));
@@ -38,10 +38,10 @@ public class buubleRandomizer : MonoBehaviour
                     AnimationList[runSelect].SetTrigger(setName);
                 }
 
-                Debug.Log("bubble " + runSelect);
+                //Debug.Log("bubble " + runSelect);
                 alreadyRunning = false;
             }
-            Debug.Log("Run");
+            //Debug.Log("Run");
             yield return new WaitForSeconds(3f);
         }
     }
