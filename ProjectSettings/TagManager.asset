@@ -14,6 +14,10 @@ TagManager:
   - elec
   - missile
   - saw
+  - collectables
+  - Key
+  - CinemachineTarget
+  - Coin
   layers:
   - Default
   - TransparentFX
